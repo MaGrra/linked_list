@@ -58,6 +58,22 @@ class LinkedList
     to_str(node.next_node)
   end
 
+  def insert_at(value, index, counter = 0)
+    return 'This no good fam' if at(index).nil?
+    return prepend(value) if index == 0
+    return at(index - 1).next_node = create_node(value, at(index)) if index == counter
+
+    insert_at(value, index, counter + 1)
+  end
+
+  def remove_at(index, counter = 0)
+    return 'This not a thing my man' if at(index).nil?
+    return pop(index) if last_node?(at(index))
+    return at(index - 1).next_node = at(index).next_node if index == counter 
+
+    remove_at(index, counter + 1)
+  end
+
 
   
   

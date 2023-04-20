@@ -21,5 +21,13 @@ p the_list.contains?("beforeTest1")
 puts "\nFind"
 p the_list.find("test2")
 puts "\nThe list"
+puts "\nBefore insert"
 p the_list.to_str
 
+the_list.insert_at("wow", 0)
+puts "\nAfter insert"
+p the_list.to_str
+
+puts "\n Deletion"
+the_list.remove_at(2)
+p the_list.to_str
