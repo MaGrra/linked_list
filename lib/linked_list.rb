@@ -38,7 +38,27 @@ class LinkedList
     pop(node.next_node)
   end
 
-  
+  def contains?(value, node = head)
+    return true if value == node.value
+    return false if last_node?(node)
+    contains?(value, node.next_node)
+  end
+
+  def find(value, node = head, index = 0)
+    return index if value == node.value
+    return nil if last_node?(node) 
+
+    find(value, node.next_node, index+1)
+  end
+
+  def to_str(node = head)
+     print "( #{node.value} ) -> "
+    return nil if last_node?(node)
+
+    to_str(node.next_node)
+  end
+
+
   
   
   def tail(node = head)
